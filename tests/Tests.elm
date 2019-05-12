@@ -15,83 +15,83 @@ all =
         [ describe "tru"
             [ test "IntとInt" <|
                 let
-                    expected =
+                    actual =
                         tru 1 2
                 in
-                \_ -> Expect.equal 1 expected
+                \_ -> Expect.equal 1 actual
             , test "IntとString" <|
                 let
-                    expected =
+                    actual =
                         tru 1 "abc"
                 in
-                \_ -> Expect.equal 1 expected
+                \_ -> Expect.equal 1 actual
             , test "StringとInt" <|
                 let
-                    expected =
+                    actual =
                         tru "abc" 1
                 in
-                \_ -> Expect.equal "abc" expected
+                \_ -> Expect.equal "abc" actual
             ]
         , describe "fls"
             [ test "IntとInt" <|
                 let
-                    expected =
+                    actual =
                         fls 1 2
                 in
-                \_ -> Expect.equal 2 expected
+                \_ -> Expect.equal 2 actual
             , test "IntとString" <|
                 let
-                    expected =
+                    actual =
                         fls 1 "abc"
                 in
-                \_ -> Expect.equal "abc" expected
+                \_ -> Expect.equal "abc" actual
             , test "StringとInt" <|
                 let
-                    expected =
+                    actual =
                         fls "abc" 1
                 in
-                \_ -> Expect.equal 1 expected
+                \_ -> Expect.equal 1 actual
             ]
         , describe "test"
             [ describe "tru"
                 [ test "IntとInt" <|
                     let
-                        expected =
+                        actual =
                             tst tru 1 2
                     in
-                    \_ -> Expect.equal 1 expected
+                    \_ -> Expect.equal 1 actual
                 , test "IntとString" <|
                     let
-                        expected =
+                        actual =
                             tst tru 1 "abc"
                     in
-                    \_ -> Expect.equal 1 expected
+                    \_ -> Expect.equal 1 actual
                 , test "StringとInt" <|
                     let
-                        expected =
+                        actual =
                             tst tru "abc" 1
                     in
-                    \_ -> Expect.equal "abc" expected
+                    \_ -> Expect.equal "abc" actual
                 ]
             , describe "fls"
                 [ test "IntとInt" <|
                     let
-                        expected =
+                        actual =
                             tst fls 1 2
                     in
-                    \_ -> Expect.equal 2 expected
+                    \_ -> Expect.equal 2 actual
                 , test "IntとString" <|
                     let
-                        expected =
+                        actual =
                             tst fls 1 "abc"
                     in
-                    \_ -> Expect.equal "abc" expected
+                    \_ -> Expect.equal "abc" actual
                 , test "StringとInt" <|
                     let
-                        expected =
+                        actual =
                             tst fls "abc" 1
                     in
-                    \_ -> Expect.equal 1 expected
+                    \_ -> Expect.equal 1 actual
                 ]
             ]
         , describe "tru fls"
