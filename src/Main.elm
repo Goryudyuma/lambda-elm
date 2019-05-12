@@ -1,6 +1,7 @@
 module Main exposing
     ( Model
     , Msg(..)
+    , fls
     , init
     , main
     , tru
@@ -72,3 +73,8 @@ main =
 tru : a -> b -> a
 tru a _ =
     a
+
+
+fls : a -> b -> b
+fls _ b =
+    b
