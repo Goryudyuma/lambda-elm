@@ -1,4 +1,12 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+module Main exposing
+    ( Model
+    , Msg(..)
+    , init
+    , main
+    , tru
+    , update
+    , view
+    )
 
 import Browser
 import Html exposing (Html, div, h1, img, text)
@@ -59,3 +67,8 @@ main =
 
 
 ---- LAMBDA ----
+
+
+tru : a -> b -> a
+tru a _ =
+    a

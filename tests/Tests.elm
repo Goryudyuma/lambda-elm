@@ -1,7 +1,9 @@
-module Tests exposing (..)
+module Tests exposing (all)
 
-import Test exposing (..)
 import Expect
+import Main exposing (..)
+import Test exposing (..)
+
 
 
 -- Check out http://package.elm-lang.org/packages/elm-community/elm-test/latest to learn more about testing in Elm!
@@ -9,14 +11,25 @@ import Expect
 
 all : Test
 all =
-    describe "A Test Suite"
-        [ test "Addition" <|
-            \_ ->
-                Expect.equal 10 (3 + 7)
-        , test "String.left" <|
-            \_ ->
-                Expect.equal "a" (String.left 1 "abcdefg")
-        , test "This test should fail" <|
-            \_ ->
-                Expect.fail "failed as expected!"
+    describe "lambda"
+        [ describe "tru"
+            [ test "IntとInt" <|
+                let
+                    expected =
+                        tru 1 2
+                in
+                \_ -> Expect.equal 1 expected
+            , test "IntとString" <|
+                let
+                    expected =
+                        tru 1 "abc"
+                in
+                \_ -> Expect.equal 1 expected
+            , test "StringとInt" <|
+                let
+                    expected =
+                        tru "abc" 1
+                in
+                \_ -> Expect.equal "abc" expected
+            ]
         ]
