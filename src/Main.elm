@@ -1,6 +1,7 @@
 module Main exposing
     ( Model
     , Msg(..)
+    , and
     , fls
     , init
     , main
@@ -84,3 +85,7 @@ fls _ b =
 tst : (a -> b -> c) -> a -> b -> c
 tst x =
     x
+
+
+and b c =
+    b c fls

@@ -94,4 +94,14 @@ all =
                     \_ -> Expect.equal 1 expected
                 ]
             ]
+        , describe "and"
+            [ test "tru and tru = tru" <|
+                \_ -> Expect.equal tru (and tru tru)
+            , test "tru and fls = fls" <|
+                \_ -> Expect.equal fls (and tru fls)
+            , test "fls and tru = fls" <|
+                \_ -> Expect.equal fls (and fls tru)
+            , test "fls and fls = fls" <|
+                \_ -> Expect.equal fls (and fls fls)
+            ]
         ]
