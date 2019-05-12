@@ -5,6 +5,7 @@ module Main exposing
     , init
     , main
     , tru
+    , tst
     , update
     , view
     )
@@ -78,3 +79,8 @@ tru a _ =
 fls : a -> b -> b
 fls _ b =
     b
+
+
+tst : (a -> b -> c) -> a -> b -> c
+tst x =
+    x
