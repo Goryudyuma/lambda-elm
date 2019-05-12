@@ -94,6 +94,14 @@ all =
                     \_ -> Expect.equal 1 expected
                 ]
             ]
+        , describe "tru fls"
+            [ test "tru tru tru" <|
+                \_ -> Expect.equal tru (tru tru tru)
+            , test "tru tru fls" <|
+                \_ -> Expect.equal tru (tru tru fls)
+            , test "tru fls fls" <|
+                \_ -> Expect.equal fls (tru fls fls)
+            ]
         , describe "and"
             [ test "tru and tru = tru" <|
                 \_ -> Expect.equal tru (and tru tru)
@@ -103,5 +111,15 @@ all =
                 \_ -> Expect.equal fls (and fls tru)
             , test "fls and fls = fls" <|
                 \_ -> Expect.equal fls (and fls fls)
+            ]
+        , describe "or"
+            [ test "tru or tru = tru" <|
+                \_ -> Expect.equal tru (or tru tru)
+            , test "tru or fls = tru" <|
+                \_ -> Expect.equal tru (or tru fls)
+            , test "fls or tru = tru" <|
+                \_ -> Expect.equal tru (or fls tru)
+            , test "fls or fls = fls" <|
+                \_ -> Expect.equal fls (or fls fls)
             ]
         ]

@@ -5,6 +5,7 @@ module Main exposing
     , fls
     , init
     , main
+    , or
     , tru
     , tst
     , update
@@ -87,5 +88,17 @@ tst x =
     x
 
 
+and :
+    (typeOfC -> (x -> y -> y) -> typeOfResult) -- typeOfB
+    -> typeOfC
+    -> typeOfResult
 and b c =
     b c fls
+
+
+or :
+    ((x -> y -> x) -> typeOfC -> typeOfResult) -- typeOfB
+    -> typeOfC
+    -> typeOfResult
+or b c =
+    b tru c
