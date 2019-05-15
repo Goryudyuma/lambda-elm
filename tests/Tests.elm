@@ -122,4 +122,52 @@ all =
             , test "fls or fls = fls" <|
                 \_ -> Expect.equal fls (or fls fls)
             ]
+        , describe "pair"
+            [ describe "fst"
+                [ test "fst (pair 1 2) = 1 int" <|
+                    \_ ->
+                        let
+                            actual =
+                                fst (pair 1 2)
+                        in
+                        Expect.equal 1 actual
+                , test "fst (pair 1 2) = 1 string" <|
+                    \_ ->
+                        let
+                            actual =
+                                fst (pair "1" "2")
+                        in
+                        Expect.equal "1" actual
+                , test "fst (pair 1 2) = 1 mix" <|
+                    \_ ->
+                        let
+                            actual =
+                                fst (pair "1" 2)
+                        in
+                        Expect.equal "1" actual
+                ]
+            , describe "snd"
+                [ test "snd (pair 1 2) = 2 int" <|
+                    \_ ->
+                        let
+                            actual =
+                                snd (pair 1 2)
+                        in
+                        Expect.equal 2 actual
+                , test "snd (pair 1 2) = 1 string" <|
+                    \_ ->
+                        let
+                            actual =
+                                snd (pair "1" "2")
+                        in
+                        Expect.equal "2" actual
+                , test "snd (pair 1 2) = 1 mix" <|
+                    \_ ->
+                        let
+                            actual =
+                                snd (pair "1" 2)
+                        in
+                        Expect.equal 2 actual
+                ]
+            ]
         ]

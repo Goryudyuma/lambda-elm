@@ -3,9 +3,12 @@ module Main exposing
     , Msg(..)
     , and
     , fls
+    , fst
     , init
     , main
     , or
+    , pair
+    , snd
     , tru
     , tst
     , update
@@ -102,3 +105,15 @@ or :
     -> typeOfResult
 or b c =
     b tru c
+
+
+pair f s b =
+    b f s
+
+
+fst p =
+    p tru
+
+
+snd p =
+    p fls
