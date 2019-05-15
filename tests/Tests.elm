@@ -177,17 +177,29 @@ all =
                 \_ -> Expect.equal 1 (show <| c1)
             , test "show c2 = 2" <|
                 \_ -> Expect.equal 2 (show <| c2)
-            , describe "succ"
+            , describe "scc"
                 [ test "show c1 = 1" <|
-                    \_ -> Expect.equal 1 (show <| succ <| c0)
+                    \_ -> Expect.equal 1 (show <| scc <| c0)
                 , test "show c2 = 2" <|
                     \_ ->
                         Expect.equal 2
-                            (show <| succ <| succ <| c0)
+                            (show <| scc <| scc <| c0)
                 , test "show c4 = 4" <|
                     \_ ->
                         Expect.equal 4
-                            (show <| succ <| succ <| succ <| succ <| c0)
+                            (show <| scc <| scc <| scc <| scc <| c0)
+                ]
+            , describe "scc2"
+                [ test "show c1 = 1" <|
+                    \_ -> Expect.equal 1 (show <| scc2 <| c0)
+                , test "show c2 = 2" <|
+                    \_ ->
+                        Expect.equal 2
+                            (show <| scc2 <| scc2 <| c0)
+                , test "show c4 = 4" <|
+                    \_ ->
+                        Expect.equal 4
+                            (show <| scc2 <| scc2 <| scc2 <| scc2 <| c0)
                 ]
             ]
         ]

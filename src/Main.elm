@@ -11,9 +11,10 @@ module Main exposing
     , main
     , or
     , pair
+    , scc
+    , scc2
     , show
     , snd
-    , succ
     , tru
     , tst
     , update
@@ -146,13 +147,22 @@ c2 s z =
     s (s z)
 
 
-succ :
+scc :
     ((x -> y) -> z -> x) -- n
     -> (x -> y) -- s
     -> z -- z
     -> y
-succ n s z =
+scc n s z =
     s (n s z)
+
+
+scc2 :
+    ((z -> z) -> z -> z) -- n
+    -> (z -> z) -- s
+    -> z -- z
+    -> z
+scc2 n s z =
+    n s (s z)
 
 
 show : ((number -> number) -> number -> int) -> int
