@@ -2,13 +2,16 @@ module Main exposing
     ( Model
     , Msg(..)
     , and
+    , c0
     , fls
     , fst
     , init
     , main
     , or
     , pair
+    , show
     , snd
+    , succ
     , tru
     , tst
     , update
@@ -124,3 +127,15 @@ fst p =
 snd : ((a -> b -> b) -> x) -> x
 snd p =
     p fls
+
+
+c0 s z =
+    z
+
+
+succ n s z =
+    s (n s z)
+
+
+show cx =
+    cx ((+) 1) 0
