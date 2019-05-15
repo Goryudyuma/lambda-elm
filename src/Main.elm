@@ -3,6 +3,8 @@ module Main exposing
     , Msg(..)
     , and
     , c0
+    , c1
+    , c2
     , fls
     , fst
     , init
@@ -132,6 +134,16 @@ snd p =
 c0 : a -> b -> b
 c0 _ z =
     z
+
+
+c1 : (z -> z) -> z -> z
+c1 s z =
+    s z
+
+
+c2 : (z -> z) -> z -> z
+c2 s z =
+    s (s z)
 
 
 succ :

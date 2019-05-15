@@ -174,14 +174,20 @@ all =
             [ test "show c0 = 0" <|
                 \_ -> Expect.equal 0 (show <| c0)
             , test "show c1 = 1" <|
-                \_ -> Expect.equal 1 (show <| succ <| c0)
+                \_ -> Expect.equal 1 (show <| c1)
             , test "show c2 = 2" <|
-                \_ ->
-                    Expect.equal 2
-                        (show <| succ <| succ <| c0)
-            , test "show c4 = 4" <|
-                \_ ->
-                    Expect.equal 4
-                        (show <| succ <| succ <| succ <| succ <| c0)
+                \_ -> Expect.equal 2 (show <| c2)
+            , describe "succ"
+                [ test "show c1 = 1" <|
+                    \_ -> Expect.equal 1 (show <| succ <| c0)
+                , test "show c2 = 2" <|
+                    \_ ->
+                        Expect.equal 2
+                            (show <| succ <| succ <| c0)
+                , test "show c4 = 4" <|
+                    \_ ->
+                        Expect.equal 4
+                            (show <| succ <| succ <| succ <| succ <| c0)
+                ]
             ]
         ]
