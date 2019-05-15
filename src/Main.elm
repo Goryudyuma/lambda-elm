@@ -107,13 +107,20 @@ or b c =
     b tru c
 
 
+pair :
+    f
+    -> s
+    -> (f -> s -> x) -- b
+    -> x
 pair f s b =
     b f s
 
 
+fst : ((a -> b -> a) -> x) -> x
 fst p =
     p tru
 
 
+snd : ((a -> b -> b) -> x) -> x
 snd p =
     p fls
