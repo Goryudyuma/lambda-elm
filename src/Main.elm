@@ -129,13 +129,20 @@ snd p =
     p fls
 
 
-c0 s z =
+c0 : a -> b -> b
+c0 _ z =
     z
 
 
+succ :
+    ((x -> y) -> z -> x) -- n
+    -> (x -> y) -- s
+    -> z -- z
+    -> y
 succ n s z =
     s (n s z)
 
 
+show : ((number -> number) -> number -> int) -> int
 show cx =
     cx ((+) 1) 0
