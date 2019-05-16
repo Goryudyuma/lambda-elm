@@ -171,5 +171,9 @@ show cx =
     cx ((+) 1) 0
 
 
+plus :
+    ((z -> z) -> z -> z) -- c
+    -> ((z -> z) -> z -> z) -- c
+    -> ((z -> z) -> z -> z) -- c
 plus m n s z =
     m s (n s z)
