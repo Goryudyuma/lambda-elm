@@ -107,7 +107,7 @@ type alias Bool a b c =
 
 
 type alias Bool1 a =
-    a -> a -> a
+    Bool a a a
 
 
 tst : Bool a b c -> Bool a b c
