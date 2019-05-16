@@ -83,12 +83,20 @@ main =
 ---- LAMBDA ----
 
 
-tru : a -> b -> a
+type alias True a b =
+    a -> b -> a
+
+
+tru : True a b
 tru a _ =
     a
 
 
-fls : a -> b -> b
+type alias False a b =
+    a -> b -> b
+
+
+fls : False a b
 fls _ b =
     b
 
@@ -99,7 +107,7 @@ tst x =
 
 
 and :
-    (typeOfC -> (x -> y -> y) -> typeOfResult) -- typeOfB
+    (typeOfC -> False a b -> typeOfResult) -- typeOfB
     -> typeOfC
     -> typeOfResult
 and b c =
@@ -107,7 +115,7 @@ and b c =
 
 
 or :
-    ((x -> y -> x) -> typeOfC -> typeOfResult) -- typeOfB
+    (True a b -> typeOfC -> typeOfResult) -- typeOfB
     -> typeOfC
     -> typeOfResult
 or b c =
@@ -123,41 +131,41 @@ pair f s b =
     b f s
 
 
-fst : ((a -> b -> a) -> x) -> x
+fst : (True a b -> x) -> x
 fst p =
     p tru
 
 
-snd : ((a -> b -> b) -> x) -> x
+snd : (False a b -> x) -> x
 snd p =
     p fls
 
 
-type alias Church c =
-    (c -> c) -> c -> c
+type alias Church number =
+    (number -> number) -> number -> number
 
 
-c0 : Church c
+c0 : Church number
 c0 _ z =
     z
 
 
-c1 : Church c
+c1 : Church number
 c1 s z =
     s z
 
 
-c2 : Church c
+c2 : Church number
 c2 s z =
     s (s z)
 
 
-scc : Church c -> Church c
+scc : Church number -> Church number
 scc n s z =
     s (n s z)
 
 
-scc2 : Church c -> Church c
+scc2 : Church number -> Church number
 scc2 n s z =
     n s (s z)
 
@@ -168,8 +176,8 @@ show cx =
 
 
 plus :
-    Church c -- c
-    -> Church c -- c
-    -> Church c -- c
+    Church number
+    -> Church number
+    -> Church number
 plus m n s z =
     m s (n s z)
