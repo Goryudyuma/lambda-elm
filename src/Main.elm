@@ -11,6 +11,7 @@ module Main exposing
     , main
     , or
     , pair
+    , plus
     , scc
     , scc2
     , show
@@ -168,3 +169,7 @@ scc2 n s z =
 show : ((number -> number) -> number -> int) -> int
 show cx =
     cx ((+) 1) 0
+
+
+plus m n s z =
+    m s (n s z)
