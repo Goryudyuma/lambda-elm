@@ -111,6 +111,10 @@ all =
                 \_ -> Expect.equal fls (and fls tru)
             , test "fls and fls = fls" <|
                 \_ -> Expect.equal fls (and fls fls)
+            , test "fls and fls and fls = fls" <|
+                \_ -> Expect.equal fls <| and (and fls fls) fls
+            , test "tru and tru and tru = tru" <|
+                \_ -> Expect.equal tru <| and (and tru tru) tru
             ]
         , describe "or"
             [ test "tru or tru = tru" <|
@@ -209,9 +213,11 @@ all =
                 \_ -> Expect.equal 1 (show <| plus c0 c1)
             , test "5 + 3 = 8" <|
                 let
+                    c5 : Church number
                     c5 =
                         scc <| scc <| scc <| scc <| scc <| c0
 
+                    c3 : Church number
                     c3 =
                         scc <| scc <| scc <| c0
                 in

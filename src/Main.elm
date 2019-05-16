@@ -1,5 +1,6 @@
 module Main exposing
-    ( Model
+    ( Church
+    , Model
     , Msg(..)
     , and
     , c0
@@ -101,15 +102,23 @@ fls _ b =
     b
 
 
-tst : (a -> b -> c) -> a -> b -> c
+type alias Bool a b c =
+    a -> b -> c
+
+
+type alias Bool1 a =
+    a -> a -> a
+
+
+tst : Bool a b c -> Bool a b c
 tst x =
     x
 
 
 and :
-    (typeOfC -> False a b -> typeOfResult) -- typeOfB
-    -> typeOfC
-    -> typeOfResult
+    Bool (Bool1 c) (False a b) (Bool1 result) -- typeOfB
+    -> Bool1 c
+    -> Bool1 result
 and b c =
     b c fls
 
