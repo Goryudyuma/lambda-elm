@@ -133,47 +133,43 @@ snd p =
     p fls
 
 
-c0 : a -> b -> b
+type alias Church c =
+    (c -> c) -> c -> c
+
+
+c0 : Church c
 c0 _ z =
     z
 
 
-c1 : (z -> z) -> z -> z
+c1 : Church c
 c1 s z =
     s z
 
 
-c2 : (z -> z) -> z -> z
+c2 : Church c
 c2 s z =
     s (s z)
 
 
-scc :
-    ((x -> y) -> z -> x) -- n
-    -> (x -> y) -- s
-    -> z -- z
-    -> y
+scc : Church c -> Church c
 scc n s z =
     s (n s z)
 
 
-scc2 :
-    ((z -> z) -> z -> z) -- n
-    -> (z -> z) -- s
-    -> z -- z
-    -> z
+scc2 : Church c -> Church c
 scc2 n s z =
     n s (s z)
 
 
-show : ((number -> number) -> number -> int) -> int
+show : Church number -> number
 show cx =
     cx ((+) 1) 0
 
 
 plus :
-    ((z -> z) -> z -> z) -- c
-    -> ((z -> z) -> z -> z) -- c
-    -> ((z -> z) -> z -> z) -- c
+    Church c -- c
+    -> Church c -- c
+    -> Church c -- c
 plus m n s z =
     m s (n s z)
