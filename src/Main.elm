@@ -17,6 +17,7 @@ module Main exposing
     , scc2
     , show
     , snd
+    , times
     , tru
     , tst
     , update
@@ -154,39 +155,33 @@ type alias Church number =
     (number -> number) -> number -> number
 
 
-c0 : Church number
 c0 _ z =
     z
 
 
-c1 : Church number
 c1 s z =
     s z
 
 
-c2 : Church number
 c2 s z =
     s (s z)
 
 
-scc : Church number -> Church number
 scc n s z =
     s (n s z)
 
 
-scc2 : Church number -> Church number
 scc2 n s z =
     n s (s z)
 
 
-show : Church number -> number
 show cx =
     cx ((+) 1) 0
 
 
-plus :
-    Church number
-    -> Church number
-    -> Church number
 plus m n s z =
     m s (n s z)
+
+
+times m n =
+    m (plus n) c0
