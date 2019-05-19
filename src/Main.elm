@@ -18,6 +18,7 @@ module Main exposing
     , show
     , snd
     , times
+    , times2
     , tru
     , tst
     , update
@@ -185,3 +186,7 @@ plus m n s z =
 
 times m n =
     m (plus n) c0
+
+
+times2 m n s =
+    m (n s)
