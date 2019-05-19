@@ -13,6 +13,7 @@ module Main exposing
     , or
     , pair
     , plus
+    , power
     , scc
     , scc2
     , show
@@ -190,3 +191,7 @@ times m n =
 
 times2 m n s =
     m (n s)
+
+
+power m n =
+    n m

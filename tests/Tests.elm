@@ -255,4 +255,30 @@ all =
                 in
                 \_ -> Expect.equal 15 (show <| times2 c5 c3)
             ]
+        , describe "power"
+            [ test "0 ** 0 = 1" <|
+                \_ -> Expect.equal 1 (show <| power c0 c0)
+            , test "0 ** 1 = 0" <|
+                \_ -> Expect.equal 0 (show <| power c0 c1)
+            , test "1 ** 1 = 1" <|
+                \_ -> Expect.equal 1 (show <| power c1 c1)
+            , test "5 ** 3 = 125" <|
+                let
+                    c5 =
+                        scc <| scc <| scc <| scc <| scc <| c0
+
+                    c3 =
+                        scc <| scc <| scc <| c0
+                in
+                \_ -> Expect.equal 125 (show <| power c5 c3)
+            , test "3 ** 5 = 243" <|
+                let
+                    c5 =
+                        scc <| scc <| scc <| scc <| scc <| c0
+
+                    c3 =
+                        scc <| scc <| scc <| c0
+                in
+                \_ -> Expect.equal 243 (show <| power c3 c5)
+            ]
         ]
