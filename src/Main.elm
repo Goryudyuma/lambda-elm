@@ -158,45 +158,56 @@ type alias Church number =
     (number -> number) -> number -> number
 
 
+c0 : Church a
 c0 _ z =
     z
 
 
+c1 : Church a
 c1 s z =
     s z
 
 
+c2 : Church a
 c2 s z =
     s (s z)
 
 
+scc : Church a -> Church a
 scc n s z =
     s (n s z)
 
 
+scc2 : Church a -> Church a
 scc2 n s z =
     n s (s z)
 
 
+show : Church number -> number
 show cx =
     cx ((+) 1) 0
 
 
+plus : Church a -> Church a -> Church a
 plus m n s z =
     m s (n s z)
 
 
+times : Church (Church a) -> Church a -> Church a
 times m n =
     m (plus n) c0
 
 
+times2 : Church a -> Church a -> Church a
 times2 m n s =
     m (n s)
 
 
+power : Church a -> Church (a -> a) -> Church a
 power m n =
     n m
 
 
+iszro : Church (Bool1 a) -> Bool1 a
 iszro m =
     m (\_ -> fls) tru
