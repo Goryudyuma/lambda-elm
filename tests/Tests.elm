@@ -281,4 +281,12 @@ all =
                 in
                 \_ -> Expect.equal 243 (show <| power c3 c5)
             ]
+        , describe "iszro"
+            [ test "iszro c0 = tru" <|
+                \_ -> Expect.equal tru (iszro c0)
+            , test "iszro c1 = fls" <|
+                \_ -> Expect.equal fls (iszro c1)
+            , test "iszro c2 = fls" <|
+                \_ -> Expect.equal fls (iszro c2)
+            ]
         ]

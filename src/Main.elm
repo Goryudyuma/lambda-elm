@@ -9,6 +9,7 @@ module Main exposing
     , fls
     , fst
     , init
+    , iszro
     , main
     , or
     , pair
@@ -195,3 +196,7 @@ times2 m n s =
 
 power m n =
     n m
+
+
+iszro m =
+    m (\_ -> fls) tru
