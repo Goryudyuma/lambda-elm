@@ -295,4 +295,12 @@ all =
             , test "snd" <|
                 \_ -> Expect.equal 0 <| show <| snd zz
             ]
+        , describe "prd"
+            [ test "1 - 1 = 0" <|
+                \_ -> Expect.equal 0 (show <| prd c1)
+            , test "0 - 1 = 0 (0より小さいものは定義できないので、正確には max(0, 0-1) である)" <|
+                \_ -> Expect.equal 0 (show <| prd c0)
+            , test "2 - 1 = 1" <|
+                \_ -> Expect.equal 1 (show <| prd c2)
+            ]
         ]

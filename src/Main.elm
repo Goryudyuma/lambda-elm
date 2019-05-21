@@ -15,6 +15,7 @@ module Main exposing
     , pair
     , plus
     , power
+    , prd
     , scc
     , scc2
     , show
@@ -216,3 +217,11 @@ iszro m =
 
 zz =
     pair c0 c0
+
+
+ss p =
+    pair (snd p) (plus c1 (snd p))
+
+
+prd m =
+    fst (m ss zz)
