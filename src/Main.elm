@@ -220,7 +220,7 @@ zz =
 
 
 ss p =
-    pair (snd p) (plus c1 (snd p))
+    pair (snd p) (scc (snd p))
 
 
 prd m =
