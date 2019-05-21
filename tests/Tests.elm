@@ -289,4 +289,10 @@ all =
             , test "iszro c2 = fls" <|
                 \_ -> Expect.equal fls (iszro c2)
             ]
+        , describe "zz"
+            [ test "fst" <|
+                \_ -> Expect.equal 0 <| show <| fst zz
+            , test "snd" <|
+                \_ -> Expect.equal 0 <| show <| snd zz
+            ]
         ]

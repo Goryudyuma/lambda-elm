@@ -25,6 +25,7 @@ module Main exposing
     , tst
     , update
     , view
+    , zz
     )
 
 import Browser
@@ -211,3 +212,7 @@ power m n =
 iszro : Church (Bool1 a) -> Bool1 a
 iszro m =
     m (\_ -> fls) tru
+
+
+zz =
+    pair c0 c0
